@@ -37,12 +37,10 @@ include './database/connection.php';
                         <td>pendiente</td>
                         <td>edtiar</td>
                         <td>borrar</td>
-                    </tr>
-            <?php
-                }
-            }
-            ?>
-        </tbody>
+                    </tr <?php
+                        }
+                    }
+                            ?> </tbody>
     </table>
 
 </body>
