@@ -1,15 +1,16 @@
 <?php
+if (!function_exists('getDBConnection')) {
+    define('HOSTNAME', 'localhost');
+    define('USERNAME', 'root');
+    define('PASSWORD', '');
+    define('DATABASE', 'tickets_app');
 
-define('HOSTNAME', 'localhost');
-define('USERNAME', 'root');
-define('PASSWORD', '');
-define('DATABASE', 'tickets_app');
-
-$connection = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
-
-if (!$connection) {
-    die('connection failed');
-} else {
-
-    echo 'connected';
+    function getDBConnection()
+    {
+        $connection = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+        if (!$connection) {
+            die('Connection failed: ' . mysqli_connect_error());
+        }
+        return $connection;
+    }
 }
