@@ -38,4 +38,35 @@ class Model
             return false;
         }
     }
+    public function exists($id)
+    {
+        $db = getDBConnection();
+        $query = "SELECT * FROM tickets WHERE id = $id";
+        $result = mysqli_query($db, $query);
+        return $result;
+    }
+    public function update($id, $data)
+    {
+        try {
+            // Construct the SQL query for updating the record
+            $db = getDBConnection();
+            $sql = "UPDATE your_table SET column1 = :value1, column2 = :value2 WHERE id = :id";
+
+            // Prepare the SQL statement
+            $stmt = $this->$db->prepare($sql);
+
+            // Bind parameters
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':value1', $data['value1']);
+            $stmt->bindParam(':value2', $data['value2']);
+            // Repeat this for each column you want to update
+
+            // Execute the SQL statement
+            $stmt->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 }
