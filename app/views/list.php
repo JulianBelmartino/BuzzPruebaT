@@ -1,5 +1,7 @@
 <?php
-include("app\controllers\controller_read.php");
+
+use App\Controllers\Controller;
+
 include(".\api.php");
 
 ?>
@@ -14,52 +16,54 @@ include(".\api.php");
 </head>
 
 <body>
-    <div>
-        <a href="./app/views/form.php">form</a>
+    <div class="main_display">
 
-    </div>
-    <table>
-        <thead>
-            <tr>
-                <td>Nombre</td>
-                <td>Descripcion</td>
-                <td>Dificultad</td>
-                <td>Estado</td>
-                <td>Editar</td>
-                <td>Borrar</td>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if (!$content) {
-                die("Controller failed");
-            } else {
-                foreach ($content as $row) {
-            ?>
-                    <tr>
-                        <td><?php echo $row['nombre'] ?></td>
-                        <td><?php echo $row['descripcion'] ?></td>
-                        <td><?php echo $row['dificultad'] ?></td>
-                        <td class="gif"><?php echo displayRandomGif($row['dificultad']); ?></td>
-                        <td>
-                            <form action="./app/views/form.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo base64_encode(json_encode($row)); ?>">
-                                <button class="test" type="submit">Editar</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="./index.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                <button type="submit">Borrar</button>
-                            </form>
-                        </td>
-                    </tr>
-            <?php
+        <table class="table_container">
+            <thead>
+                <tr class="table_header">
+                    <td>Nombre</td>
+                    <td>Descripcion</td>
+                    <td>Dificultad</td>
+                    <td>Estado</td>
+                    <td>Editar</td>
+                    <td>Borrar</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $controller = new Controller();
+                $content = $controller->read();
+                $erased = $controller->delete();
+                if (!$content) {
+                    die("Controller failed");
+                } else {
+                    foreach ($content as $row) {
+                ?>
+                        <tr class="row">
+                            <td class="cells"><?php echo $row['nombre'] ?></td>
+                            <td class="cells"><?php echo $row['descripcion'] ?></td>
+                            <td class="cells"><?php echo $row['dificultad'] ?></td>
+
+                            <td>
+                                <form action="./app/views/form.php" method="post">
+                                    <input type="hidden" name="row" value="<?php echo base64_encode(json_encode($row)); ?>">
+                                    <button class="buttons" type="submit">Editar</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="./index.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                    <button class="button-delete" type="submit">Borrar</button>
+                                </form>
+                            </td>
+                        </tr>
+                <?php
+                    }
                 }
-            }
-            ?>
-        </tbody>
-    </table>
+                ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+{
+  "name": "julian/website",
+  "autoload": {
+    "psr-4": {
+      "App\\": "App/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Julian Belmartino",
+      "email": "belmartinojulian@gmail.com"
+    }
+  ],
+  "require": {}
+}

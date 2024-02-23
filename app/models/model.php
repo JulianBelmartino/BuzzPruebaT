@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Models;
+
+use Error;
 
 class Model
 {
@@ -65,7 +68,7 @@ class Model
             $stmt->execute();
 
             return true;
-        } catch (PDOException $e) {
+        } catch (Error) {
             return false;
         }
     }

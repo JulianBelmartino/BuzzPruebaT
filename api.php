@@ -1,9 +1,9 @@
 <?php
 
-function displayRandomGif($search_query, $limit = 1, $width = 40, $height = 40, $api_key = '3fm6hr4ds6FmBkO8uq42iFkN1disB12f')
+function displayRandomGif($search_query, $limit = 1, $api_key = '3fm6hr4ds6FmBkO8uq42iFkN1disB12f')
 {
 
-    $url = "https://api.giphy.com/v1/gifs/search?q=" . urlencode($search_query) . "&api_key=$api_key&limit=$limit&w=$width&h=$height";
+    $url = "https://api.giphy.com/v1/gifs/search?q=" . urlencode($search_query) . "&api_key=$api_key&limit=$limit";
 
 
     $response = file_get_contents($url);

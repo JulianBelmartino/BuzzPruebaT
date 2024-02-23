@@ -1,8 +1,103 @@
-.test{
-    background-color: red;
-    color:red;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.gif{
-    height: 40px;
-    width: auto;
+
+body {
+    font-family: Arial, sans-serif; 
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%; 
+}
+
+body {
+    margin: 0;
+}
+
+
+/* Navbar */
+.navbar{
+    background-color: rgb(24, 91, 136);
+    display: flex;
+    height:4rem;
+    align-items: center;
+}
+.title{
+    margin-left:2rem;
+    margin-right:2rem;
+    color: rgb(255, 255, 255);
+}
+.agregar{
+    text-decoration: none;
+    color: white;
+
+}
+
+/* List */
+.main_display{
+    min-height: 80vh;
+}
+.table_container{
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size:larger;
+
+}
+.table_header{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+font-size: x-large;
+
+}
+.buttons{
+    background-color: rgb(24, 91, 136);
+    color:rgb(248, 248, 248);
+}
+.button-delete{
+    background-color: red;
+    color:rgb(248, 248, 248);
+}
+.row{
+    height: 2rem;
+    font-weight: bold;
+    width: 500px;
+    margin-bottom:20px;
+}
+.cell{
+    width:20rem;
+}
+img{
+    width:40px;
+    height:40px;
+}
+
+/* Footer */
+.footer_container{
+    background-color: rgb(24, 91, 136);
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    bottom: 0;
+    margin-top: auto; 
+    width:100%;
+    min-height: 4rem;
+}
+
+/*Form*/
+.form{
+    display:flex;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid grey;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin-left:auto;
+    margin-right: auto;
 }
