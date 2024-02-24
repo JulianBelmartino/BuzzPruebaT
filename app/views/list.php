@@ -34,8 +34,8 @@ include(".\api.php");
                 $controller = new Controller();
                 $content = $controller->read();
                 $erased = $controller->delete();
-                if (!$content) {
-                    die("Controller failed");
+                if (!$content || $content === 'No hay resultados') {
+                    echo "<tr><td colspan='6'><h1>No hay resultados</h1></td></tr>";
                 } else {
                     foreach ($content as $row) {
                 ?>
@@ -76,46 +76,39 @@ include(".\api.php");
     </div>
 
     <script>
-        // Obtener el modal
-        var modal = document.getElementById("myModal");
+        const modal = document.getElementById("myModal");
+        const confirmBtn = document.getElementById("confirmBtn");
+        const cancelBtn = document.getElementById("cancelBtn");
 
-        // Obtener el botón de borrar y el botón de cancelar del modal
-        var confirmBtn = document.getElementById("confirmBtn");
-        var cancelBtn = document.getElementById("cancelBtn");
-
-        // Función para mostrar el modal al hacer clic en el botón de borrar
         function showModal() {
             modal.style.display = "block";
         }
 
-        // Función para ocultar el modal al hacer clic en el botón de cancelar
         function hideModal() {
             modal.style.display = "none";
         }
 
-        // Evento para mostrar el modal al hacer clic en el botón de borrar
-        var deleteButtons = document.querySelectorAll('.button-delete');
+        const deleteButtons = document.querySelectorAll('.button-delete');
         deleteButtons.forEach(function(button) {
             button.addEventListener('click', function(event) {
                 showModal();
-                // Detener la acción predeterminada del formulario para evitar el envío accidental
                 event.preventDefault();
             });
         });
 
-        // Evento para ocultar el modal al hacer clic en el botón de cancelar
+
         cancelBtn.addEventListener('click', function() {
             hideModal();
         });
 
-        // Puedes agregar un evento similar para el botón de confirmar si deseas realizar alguna acción adicional
+
         confirmBtn.addEventListener('click', function() {
             hideModal();
-            var form = document.getElementById('delete'); // Replace 'yourFormId' with the actual ID of your form
+            const form = document.getElementById('delete');
             form.submit();
 
         });
-        // También puedes considerar agregar un evento de escucha para cerrar el modal haciendo clic fuera de él si lo deseas
+
         window.addEventListener('click', function(event) {
             if (event.target == modal) {
                 hideModal();

@@ -16,11 +16,11 @@ use App\Controllers\Controller;
     require_once('navbar.php');
 
     if (isset($_POST['row'])) {
-        // Decodificar la información de la fila desde base64
+
         $encodedRow = $_POST['row'];
         $decodedRow = json_decode(base64_decode($encodedRow), true);
 
-        // Utilizar los datos de la fila según sea necesario
+
         $id = $decodedRow['id'];
         $nombre = $decodedRow['nombre'];
         $descripcion = $decodedRow['descripcion'];
@@ -35,11 +35,11 @@ use App\Controllers\Controller;
                 <label for="description">Descripcion:</label><br>
                 <textarea class="form_row" id="description" <?php if (isset($descripcion)) echo 'placeholder="' . $descripcion . '"'; ?> name="description" maxlength="255"></textarea><br>
                 <label>Selecciona la dificultad:</label><br>
-                <input type="radio" id="option1" name="dificulty" <?php if (isset($dificultad) && $dificultad == 'easy') echo 'checked'; ?> value="easy">
+                <input type="radio" id="option1" name="dificulty" <?php if (isset($dificultad) && $dificultad == 'Easy') echo 'checked'; ?> value="Easy">
                 <label for="option1">Principiante</label><br>
-                <input type="radio" id="option2" name="dificulty" <?php if (isset($dificultad) && $dificultad == 'intermediate') echo 'checked'; ?> value="intermediate">
+                <input type="radio" id="option2" name="dificulty" <?php if (isset($dificultad) && $dificultad == 'Intermediate') echo 'checked'; ?> value="Intermediate">
                 <label for="option2">Intermedio</label><br>
-                <input type="radio" id="option3" name="dificulty" <?php if (isset($dificultad) && $dificultad == 'hard') echo 'checked'; ?> value="hard">
+                <input type="radio" id="option3" name="dificulty" <?php if (isset($dificultad) && $dificultad == 'Hard') echo 'checked'; ?> value="Hard">
                 <label for="option3">Experto</label><br>
                 <?php if (isset($id)) : ?>
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -67,9 +67,8 @@ use App\Controllers\Controller;
             return true;
         }
     </script>
-    <!-- Modal -->
+
     <div id="myModal" class="modal">
-        <!-- Modal content -->
         <div class="modal-content">
             <span class="close"></span>
             <p class="modal-text">Nuevo ticket creado!</p>
@@ -78,39 +77,42 @@ use App\Controllers\Controller;
     </div>
     <script>
         function validateForm() {
-            var name = document.getElementById('name').value.trim();
-            var description = document.getElementById('description').value.trim();
-            var difficulty = document.querySelector('input[name="dificulty"]:checked');
+            const name = document.getElementById('name').value.trim();
+            const description = document.getElementById('description').value.trim();
+            const difficulty = document.querySelector('input[name="dificulty"]:checked');
 
             if (name === '' || description === '' || !difficulty) {
                 alert('Por favor, completa todos los campos antes de enviar el formulario.');
                 return false;
             }
 
+            const isNewTicket = !document.querySelector('input[name="id"]');
+
+            if (isNewTicket) {
+                document.getElementById('myModal').querySelector('.modal-text').innerText = 'Nuevo ticket creado!';
+            } else {
+                document.getElementById('myModal').querySelector('.modal-text').innerText = 'Nuevo ticket actualizado!';
+            }
 
             document.getElementById('myModal').style.display = 'block';
 
             return false;
         }
 
-        // Get the modal
-        var modal = document.getElementById('myModal');
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName('close')[0];
+        const modal = document.getElementById('myModal');
+        const span = document.getElementsByClassName('close')[0];
+        const confirmBtn = document.getElementById('confirmBtn');
 
-        // Get the confirm button
-        var confirmBtn = document.getElementById('confirmBtn');
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
             modal.style.display = 'none';
         };
 
-        // When the user clicks on Confirm, hide the modal and submit the form
+
         confirmBtn.onclick = function() {
             modal.style.display = 'none';
-            document.getElementById('ticketForm').submit(); // Submit the form
+            document.getElementById('ticketForm').submit();
         };
     </script>
 </body>

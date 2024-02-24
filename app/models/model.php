@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Error;
-
 class Model
 {
     public function read()
@@ -45,17 +43,14 @@ class Model
     {
         $db = getDBConnection();
 
-        // Prepare the SQL statement
+
         $query = "UPDATE tickets SET nombre = ?, descripcion = ?, dificultad = ? WHERE id = ?";
         $stmt = mysqli_prepare($db, $query);
 
-        // Bind parameters to the prepared statement
         mysqli_stmt_bind_param($stmt, "sssi", $name, $description, $dificulty, $id);
 
-        // Execute the statement
         $result = mysqli_stmt_execute($stmt);
 
-        // Check if the update was successful
         if ($result) {
             return true;
         } else {

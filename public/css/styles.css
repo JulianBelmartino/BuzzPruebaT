@@ -1,152 +1,152 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, sans-serif; 
-}
+        body {
+            font-family: Arial, sans-serif; 
+        }
 
-html {
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%; 
-}
+        html {
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%; 
+        }
 
-body {
-    margin: 0;
-}
+        body {
+            margin: 0;
+        }
 
 
-/* Navbar */
-.navbar{
-    background-color: rgb(24, 91, 136);
-    display: flex;
-    height:5rem;
-    align-items: center;
-    padding:1rem;
-}
-.title{
-    margin-left:2rem;
-    margin-right:2rem;
-    color: rgb(255, 255, 255);
-}
-.agregar{
-    text-decoration: none;
-    color: white;
+        /* Navbar */
+        .navbar{
+            background-color: rgb(24, 91, 136);
+            display: flex;
+            height:5rem;
+            align-items: center;
+            padding:1rem;
+        }
+        .title{
+            margin-left:2rem;
+            margin-right:2rem;
+            color: rgb(255, 255, 255);
+        }
+        .agregar{
+            text-decoration: none;
+            color: white;
 
-}
+        }
 
 /* List */
-.main_display{
-    min-height: 69.3vh;
-}
-.table_container{
-    width: 90%;
-    margin: 0px auto;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    font-size:larger;
+        .main_display{
+            min-height: 69.3vh;
+        }
+        .table_container{
+            width: 90%;
+            margin: 0px auto;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            font-size:larger;
 
-}
-.table_header{
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-font-size: x-large;
-padding:50px;
-}
-.buttons{
-    background-color: rgb(24, 91, 136);
-    color:rgb(248, 248, 248);
-    padding:0.5rem;
-    min-width:100px;
-    border-radius: 5%;
-}
-.buttons:hover{
-    background-color:rgb(255, 255, 255);
-    color: rgb(24, 91, 136);
-    cursor: pointer;
-    border: 1px solid  rgb(24, 91, 136);
-    transition: ease-in-out 0.5s
-}
-.button-delete{
-    background-color: red;
-    color:rgb(255, 255, 255);
-    padding:0.5rem;
-    min-width:100px;
-    border-radius: 5%;
-}
-.button-delete:hover{
-    background-color:rgb(252, 255, 255);
-    color: red;
-    cursor: pointer;
-    border: 1px solid  red;
-    transition: ease-in-out 0.5s
-}
-.row{
-    height: 2rem;
-    font-weight: bold;
-    width: 500px;
-    margin-bottom:20px;
-    margin-top: 1rem;
-}
-.cell{
-    width:20rem;
-}
-.desc{
-    min-width: 400px;
-    max-width: 400px;
-}
-img{
-    width:100px;
-    height:68px;
-}
+        }
+        .table_header{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: x-large;
+        padding:50px;
+        }
+        .buttons{
+            background-color: rgb(24, 91, 136);
+            color:rgb(248, 248, 248);
+            padding:0.5rem;
+            min-width:100px;
+            border-radius: 5%;
+        }
+        .buttons:hover{
+            background-color:rgb(255, 255, 255);
+            color: rgb(24, 91, 136);
+            cursor: pointer;
+            border: 1px solid  rgb(24, 91, 136);
+            transition: ease-in-out 0.5s
+        }
+        .button-delete{
+            background-color: red;
+            color:rgb(255, 255, 255);
+            padding:0.5rem;
+            min-width:100px;
+            border-radius: 5%;
+        }
+        .button-delete:hover{
+            background-color:rgb(252, 255, 255);
+            color: red;
+            cursor: pointer;
+            border: 1px solid  red;
+            transition: ease-in-out 0.5s
+        }
+        .row{
+            height: 2rem;
+            font-weight: bold;
+            width: 500px;
+            margin-bottom:20px;
+            margin-top: 1rem;
+        }
+        .cell{
+            width:20rem;
+        }
+        .desc{
+            min-width: 400px;
+            max-width: 400px;
+        }
+        img{
+            width:100px;
+            height:68px;
+        }
 
-/* Footer */
-.footer_container{
-    background-color: rgb(212, 212, 212);
-    color:white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    bottom: 0;
-    margin-top: auto; 
-    width:100%;
-    min-height: 4rem;
-}
+        /* Footer */
+        .footer_container{
+            background-color: rgb(212, 212, 212);
+            color:white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0;
+            margin-top: auto; 
+            width:100%;
+            min-height: 4rem;
+        }
 
 
 /*Form*/
 
-.form_display{
-    display: flex;
-    min-height: 78.8vh;
-    align-items: center;
-    justify-content: center;
-}
-.form{
-    padding: 2rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    border: 2px solid rgb(214, 211, 211);
-    border-radius: 5%;
-    width: fit-content;
-    height: fit-content;
-}
-.form_row{
-    margin-bottom:1rem;
-}
-.button_container{
-    display: flex;
-    justify-content: center;
-}
-.in-form{
-    margin: 1rem 0px;
-    border-radius:5%;
-}
+        .form_display{
+            display: flex;
+            min-height: 78.8vh;
+            align-items: center;
+            justify-content: center;
+        }
+        .form{
+            padding: 2rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            border: 2px solid rgb(214, 211, 211);
+            border-radius: 5%;
+            width: fit-content;
+            height: fit-content;
+        }
+        .form_row{
+            margin-bottom:1rem;
+        }
+        .button_container{
+            display: flex;
+            justify-content: center;
+        }
+        .in-form{
+            margin: 1rem 0px;
+            border-radius:5%;
+        }
 
-        /* Estilos para el modal */
+/*Modal */
         .modal {
-            display: none; /* Por defecto, el modal estará oculto */
+            display: none;
             position: fixed;
             z-index: 1;
             left: 0;

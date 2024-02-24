@@ -11,8 +11,12 @@ class Controller
         $crudModel = new Model();
         $content = $crudModel->read();
 
-        if ($content) {
-            return $content;
+        if ($content !== false) {
+            if ($content && count($content) > 0) {
+                return $content;
+            } else {
+                return 'No hay resultados';
+            }
         } else {
             echo 'Error reading data from database.';
         }
@@ -28,8 +32,6 @@ class Controller
                 header('Location: ./index.php');
                 exit;
             } else {
-                // Handle deletion failure
-                // For example, display an error message
                 echo "Error deleting record";
             }
         }

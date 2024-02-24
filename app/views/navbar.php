@@ -16,18 +16,12 @@
     </div>
 
     <script>
-        // Obtenemos la URL actual
-        var currentURL = window.location.href;
-
-        // Verificamos si estamos en la página index.php
+        const currentURL = window.location.href;
         if (currentURL.includes("index.php")) {
-            // Obtenemos el enlace de la barra de navegación
-            var homeLink = document.getElementById("homeLink");
-            // Asignamos un evento de clic al enlace
+
+            const homeLink = document.getElementById("homeLink");
             homeLink.addEventListener("click", function(event) {
-                // Prevenimos el comportamiento predeterminado del enlace
                 event.preventDefault();
-                // Actualizamos la página (refrescamos)
                 window.location.reload();
             });
         }
