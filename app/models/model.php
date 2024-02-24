@@ -20,14 +20,19 @@ class Model
     public function delete($id)
     {
         $db = getDBConnection();
-        $query = "DELETE FROM `tickets` WHERE id = $id";
-        $result = mysqli_query($db, $query);
+        $query = "DELETE FROM `tickets` WHERE id = ?";
+        $statement = mysqli_prepare($db, $query);
+        mysqli_stmt_bind_param($statement, "i", $id);
+        $result = mysqli_stmt_execute($statement);
+
         if ($result) {
             return true;
         } else {
+            echo "Error: " . mysqli_error($db); // Output database error
             return false;
         }
     }
+
     public function insert($name, $description, $dificulty)
     {
         $db = getDBConnection();
@@ -44,13 +49,8 @@ class Model
         $db = getDBConnection();
 
 
-        $query = "UPDATE tickets SET nombre = ?, descripcion = ?, dificultad = ? WHERE id = ?";
-        $stmt = mysqli_prepare($db, $query);
-
-        mysqli_stmt_bind_param($stmt, "sssi", $name, $description, $dificulty, $id);
-
-        $result = mysqli_stmt_execute($stmt);
-
+        $query = "UPDATE tickets SET nombre = $name, descripcion = $description, dificultad = $dificulty WHERE id = $id";
+        $result = mysqli_query($db, $query);
         if ($result) {
             return true;
         } else {

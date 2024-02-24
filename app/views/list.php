@@ -74,47 +74,6 @@ include(".\api.php");
             </div>
         </div>
     </div>
-
-    <script>
-        const modal = document.getElementById("myModal");
-        const confirmBtn = document.getElementById("confirmBtn");
-        const cancelBtn = document.getElementById("cancelBtn");
-
-        function showModal() {
-            modal.style.display = "block";
-        }
-
-        function hideModal() {
-            modal.style.display = "none";
-        }
-
-        const deleteButtons = document.querySelectorAll('.button-delete');
-        deleteButtons.forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                showModal();
-                event.preventDefault();
-            });
-        });
-
-
-        cancelBtn.addEventListener('click', function() {
-            hideModal();
-        });
-
-
-        confirmBtn.addEventListener('click', function() {
-            hideModal();
-            const form = document.getElementById('delete');
-            form.submit();
-
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target == modal) {
-                hideModal();
-            }
-        });
-    </script>
 </body>
 
 </html>
