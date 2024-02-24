@@ -19,7 +19,7 @@ class Controller
     }
     public function delete()
     {
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id']) && isset($_POST['action']) && $_POST['action'] === 'delete') {
             $id = $_POST['id'];
             $crudModel = new Model();
             $success = $crudModel->delete($id);
@@ -40,6 +40,18 @@ class Controller
         $agregado = $crudModel->insert($name, $description, $dificulty);
 
         if ($agregado) {
+            echo '<meta http-equiv="refresh" content="0.1; URL=./index.php">';
+            exit;
+        } else {
+            echo 'failed to add data';
+        }
+    }
+    public function update($name, $description, $dificulty, $id)
+    {
+        $crudModel = new Model();
+        $actualizado = $crudModel->update($name, $description, $dificulty, $id);
+
+        if ($actualizado) {
             echo '<meta http-equiv="refresh" content="0.1; URL=./index.php">';
             exit;
         } else {

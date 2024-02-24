@@ -41,34 +41,24 @@ class Model
             return false;
         }
     }
-    public function exists($id)
+    public function update($id, $name, $description, $dificulty)
     {
         $db = getDBConnection();
-        $query = "SELECT * FROM tickets WHERE id = $id";
-        $result = mysqli_query($db, $query);
-        return $result;
-    }
-    public function update($id, $data)
-    {
-        try {
-            // Construct the SQL query for updating the record
-            $db = getDBConnection();
-            $sql = "UPDATE your_table SET column1 = :value1, column2 = :value2 WHERE id = :id";
 
-            // Prepare the SQL statement
-            $stmt = $this->$db->prepare($sql);
+        // Prepare the SQL statement
+        $query = "UPDATE tickets SET nombre = ?, descripcion = ?, dificultad = ? WHERE id = ?";
+        $stmt = mysqli_prepare($db, $query);
 
-            // Bind parameters
-            $stmt->bindParam(':id', $id);
-            $stmt->bindParam(':value1', $data['value1']);
-            $stmt->bindParam(':value2', $data['value2']);
-            // Repeat this for each column you want to update
+        // Bind parameters to the prepared statement
+        mysqli_stmt_bind_param($stmt, "sssi", $name, $description, $dificulty, $id);
 
-            // Execute the SQL statement
-            $stmt->execute();
+        // Execute the statement
+        $result = mysqli_stmt_execute($stmt);
 
+        // Check if the update was successful
+        if ($result) {
             return true;
-        } catch (Error) {
+        } else {
             return false;
         }
     }

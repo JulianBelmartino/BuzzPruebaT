@@ -10,7 +10,7 @@
 
 <body>
     <div class="footer_container">
-        <h1>Footer</h1>
+
     </div>
 </body>
 

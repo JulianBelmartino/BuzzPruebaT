@@ -22,8 +22,9 @@ body {
 .navbar{
     background-color: rgb(24, 91, 136);
     display: flex;
-    height:4rem;
+    height:5rem;
     align-items: center;
+    padding:1rem;
 }
 .title{
     margin-left:2rem;
@@ -38,7 +39,7 @@ body {
 
 /* List */
 .main_display{
-    min-height: 80vh;
+    min-height: 69.3vh;
 }
 .table_container{
     width: 90%;
@@ -56,10 +57,28 @@ font-size: x-large;
 .buttons{
     background-color: rgb(24, 91, 136);
     color:rgb(248, 248, 248);
+    padding:0.5rem;
+    min-width:100px;
+    border-radius: 5%;
+}
+.buttons:hover{
+    background-color:rgb(255, 255, 255);
+    color: rgb(24, 91, 136);
+    cursor: pointer;
+    transition: ease-in-out 1s
 }
 .button-delete{
     background-color: red;
-    color:rgb(248, 248, 248);
+    color:rgb(255, 255, 255);
+    padding:0.5rem;
+    min-width:100px;
+    border-radius: 5%;
+}
+.button-delete:hover{
+    background-color:rgb(252, 255, 255);
+    color: red;
+    cursor: pointer;
+    transition: ease-in-out 1s
 }
 .row{
     height: 2rem;
@@ -70,34 +89,83 @@ font-size: x-large;
 .cell{
     width:20rem;
 }
+.desc{
+    min-width: 400px;
+    max-width: 400px;
+}
 img{
-    width:40px;
-    height:40px;
+    width:100px;
+    height:68px;
 }
 
 /* Footer */
 .footer_container{
-    background-color: rgb(24, 91, 136);
+    background-color: rgb(212, 212, 212);
     color:white;
     display: flex;
     justify-content: center;
     align-items: center;
-    
     bottom: 0;
     margin-top: auto; 
     width:100%;
     min-height: 4rem;
 }
 
+
 /*Form*/
-.form{
-    display:flex;
-    flex-direction: column;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: 2px solid grey;
-    width: fit-content;
+
+.form_display{
+    display: flex;
+    min-height: 78.8vh;
     align-items: center;
     justify-content: center;
-    margin-left:auto;
-    margin-right: auto;
 }
+.form{
+    padding: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    border: 2px solid rgb(214, 211, 211);
+    border-radius: 5%;
+    width: fit-content;
+    height: fit-content;
+}
+.form_row{
+    margin-bottom:1rem;
+}
+.button_container{
+    display: flex;
+    justify-content: center;
+}
+.in-form{
+    margin: 1rem 0px;
+    border-radius:5%;
+}
+
+        /* Estilos para el modal */
+        .modal {
+            display: none; /* Por defecto, el modal estará oculto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .modal-buttons {
+            text-align: center;
+        }
+
+        .modal-buttons button {
+            margin: 5px;
+        }
