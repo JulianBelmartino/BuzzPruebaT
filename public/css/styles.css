@@ -52,7 +52,7 @@ body {
 .table_header{
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 font-size: x-large;
-
+padding:50px;
 }
 .buttons{
     background-color: rgb(24, 91, 136);
@@ -65,7 +65,8 @@ font-size: x-large;
     background-color:rgb(255, 255, 255);
     color: rgb(24, 91, 136);
     cursor: pointer;
-    transition: ease-in-out 1s
+    border: 1px solid  rgb(24, 91, 136);
+    transition: ease-in-out 0.5s
 }
 .button-delete{
     background-color: red;
@@ -78,13 +79,15 @@ font-size: x-large;
     background-color:rgb(252, 255, 255);
     color: red;
     cursor: pointer;
-    transition: ease-in-out 1s
+    border: 1px solid  red;
+    transition: ease-in-out 0.5s
 }
 .row{
     height: 2rem;
     font-weight: bold;
     width: 500px;
     margin-bottom:20px;
+    margin-top: 1rem;
 }
 .cell{
     width:20rem;
@@ -159,7 +162,14 @@ img{
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
+            border-radius: 5%;
+            width: 30%;
+            font-weight: bold;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .modal-buttons {
@@ -168,4 +178,9 @@ img{
 
         .modal-buttons button {
             margin: 5px;
+        }
+        .modal-text{
+            font-size: larger;
+            font-weight: bold;
+            margin-bottom: 2rem;
         }

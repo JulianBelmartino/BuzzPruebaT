@@ -67,10 +67,10 @@ include(".\api.php");
     </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <p>¿Está seguro que quiere borrar el ticket?</p>
+            <p class="modal-text">¿Está seguro que quiere borrar el ticket?</p>
             <div class="modal-buttons">
-                <button id="confirmBtn">Confirmar</button>
-                <button id="cancelBtn">Cancelar</button>
+                <button class="buttons" id="confirmBtn">Confirmar</button>
+                <button class="buttons" id="cancelBtn">Cancelar</button>
             </div>
         </div>
     </div>

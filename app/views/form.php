@@ -71,9 +71,9 @@ use App\Controllers\Controller;
     <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Nuevo ticket creado</p>
-            <button id="confirmBtn">Confirmar</button>
+            <span class="close"></span>
+            <p class="modal-text">Nuevo ticket creado!</p>
+            <button class="buttons" id="confirmBtn">CONFIRMAR</button>
         </div>
     </div>
     <script>
@@ -87,10 +87,10 @@ use App\Controllers\Controller;
                 return false;
             }
 
-            // If all fields are filled, show the modal
+
             document.getElementById('myModal').style.display = 'block';
 
-            return false; // Prevent form submission
+            return false;
         }
 
         // Get the modal
