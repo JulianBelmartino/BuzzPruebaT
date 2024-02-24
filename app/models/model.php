@@ -49,7 +49,7 @@ class Model
         $db = getDBConnection();
 
 
-        $query = "UPDATE tickets SET nombre = $name, descripcion = $description, dificultad = $dificulty WHERE id = $id";
+        $query = "UPDATE tickets SET nombre = '$name', descripcion = '$description', dificultad = '$dificulty' WHERE id = $id";
         $result = mysqli_query($db, $query);
         if ($result) {
             return true;
